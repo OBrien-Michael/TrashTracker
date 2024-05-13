@@ -7,9 +7,38 @@
     Shell.FlyoutBehavior="Disabled"
     Title="TrashTracker">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Icon="fa_house_solid.png" />
+
+        <ShellContent
+            Title="Map"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Icon="fa_earth_americas_solid.png" />
+
+        <ShellContent
+            Title="Stats"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Icon="fa_chart_simple_solid.png" />
+
+        <ShellContent
+            Title="Events"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Icon="fa_calendar_days_regular.png" />
+
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"
+            Icon="fa_user_solid.png"/>
+
+    </TabBar>
+
 
 </Shell>
