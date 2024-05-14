@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TrashTracker"
+    xmlns:view="clr-namespace:TrashTracker.View"
     Shell.FlyoutBehavior="Disabled"
     Title="TrashTracker">
 
@@ -16,8 +17,8 @@
 
         <ShellContent
             Title="Map"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage"
+            ContentTemplate="{DataTemplate view:MapPage}"
+            Route="View/MapPage"
             Icon="fa_earth_americas_solid.png" />
 
         <ShellContent
