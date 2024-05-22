@@ -21,8 +21,10 @@
             <Label Grid.Row="2" Grid.Column="1" x:Name="DescriptionLabel" Text="{Binding TrashPin.Description}" />
 
             <Label Grid.Row="3" Grid.Column="0" Text="Location: " />
-            <Label Grid.Row="3" Grid.Column="1" x:Name="LocationLatitudeLabel" Text="{Binding TrashPin.Location.Latitude}" />
-            <Label Grid.Row="3" Grid.Column="2" x:Name="LocationLongitudeLabel" Text="{Binding TrashPin.Location.Longitude}" />
+            <Label Grid.Row="3" Grid.Column="1" x:Name="LocationLatitudeLabel"
+                   Text="{Binding TrashPin.Location.Latitude, StringFormat='{0:F3}'}" />
+            <Label Grid.Row="3" Grid.Column="2" x:Name="LocationLongitudeLabel"
+                   Text="{Binding TrashPin.Location.Longitude, StringFormat='{0:F3}'}" />
 
             <Label Grid.Row="4" Grid.Column="0" Text="Severity" />
             <Label Grid.Row="4" Grid.Column="1" x:Name="SeverityLabel" Text="{Binding TrashPin.Severity}" />
