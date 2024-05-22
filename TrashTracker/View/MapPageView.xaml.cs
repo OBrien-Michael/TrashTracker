@@ -18,7 +18,7 @@ public partial class MapPageView : ContentPage
 		//Move the map to a specific location in Ireland
 		MapView.MoveToRegion(MapSpan.FromCenterAndRadius(new Location(52.57465, -9.10040), 
 			Distance.FromMiles(500)));
-	}
+    }
 
     //When the map appears, load the pins
     protected override void OnAppearing()

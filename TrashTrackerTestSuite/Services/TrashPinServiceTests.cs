@@ -8,35 +8,34 @@ namespace TrashTrackerTestSuite.Services
 	public class TrashPinServiceTests
 	{
 		[Fact]
-		public void GetAllTrashPins()
+		public async Task GetAllTrashPins()
 		{
 			// Arrange
 			var service = new TrashPinService();
 
 			// Act
-			var result = service.GetAllTrashPins();
+			var result = await service.GetAllTrashPins();
 
 			// Assert
-			Assert.Equal(service.TrashPinList,result);
+			Assert.IsType<TrashPin>(result.First());
 		}
 
 		[Fact]
-		public void GetTrashPinsByLowSeverity()
+		public async Task GetTrashPinsByLowSeverity()
 		{
 			// Arrange
 			var service = new TrashPinService();
 			Severity severity = Severity.Low;
 
 			// Act
-			var result = service.GetTrashPinsBySeverity(
-				severity);
+			var result = await service.GetTrashPinsBySeverity(severity);
 
 			// Assert
-			Assert.Equal(result.First().Severity,Severity.Low);
+			Assert.Equal(result.First().Severity, Severity.Low);
 		}
 
 		[Fact]
-		public void AddTrashPin()
+		public async Task AddTrashPin()
 		{
 			// Arrange
 			var service = new TrashPinService();
@@ -53,10 +52,11 @@ namespace TrashTrackerTestSuite.Services
 			};
 
 			// Act
-			service.AddTrashPin(newTrashPin);
+			await service.AddTrashPin(newTrashPin);
 
 			// Assert
-			Assert.Contains(newTrashPin, service.TrashPinList);
+			var allPins = await service.GetAllTrashPins();
+			Assert.Contains(allPins, pin => pin.Id == newTrashPin.Id);
 		}
 
 	}
