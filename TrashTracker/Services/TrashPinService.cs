@@ -87,5 +87,10 @@ namespace TrashTracker.Services
 			return TrashPinList;
 		}
 
-	}
+        //Returns a list of TrashPins with the specified severity
+        public IEnumerable<TrashPin> GetTrashPinsBySeverity(Severity severity)
+        {
+            return TrashPinList.Where(pin => pin.Severity == severity).ToList();
+        }
+    }
 }
