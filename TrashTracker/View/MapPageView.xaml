@@ -12,7 +12,7 @@
 
 
        <!-- Map -->
-        <maps:Map x:Name="MapView" 
+        <maps:Map x:Name="MapView"
                   MapClicked="OnMapClicked" 
                   ItemsSource="{Binding TrashPins}"> 
             <maps:Map.ItemTemplate>
@@ -20,7 +20,8 @@
                     <maps:Pin Location="{Binding Location}"
                               Address="{Binding Description}"
                               Label="{Binding Name}" 
-                              MarkerId="{Binding Id}"/>
+                              InfoWindowClicked="Pin_OnInfoWindowClicked"
+                              />
                 </DataTemplate>
             </maps:Map.ItemTemplate>
         </maps:Map>
