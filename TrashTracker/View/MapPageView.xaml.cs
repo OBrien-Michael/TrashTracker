@@ -20,10 +20,23 @@ public partial class MapPageView : ContentPage
 			Distance.FromMiles(500)));
 	}
 
-	//When map is clicked, write the location to the console
+    //When the map appears, load the pins
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        ((MapPageViewModel)BindingContext).LoadPins();
+    }
+
+
+
+	//When map is clicked, take the user to the CreateNewTrashPinModal passing the Location as an argument
 	void OnMapClicked(object sender, MapClickedEventArgs e)
 	{
-        System.Diagnostics.Debug.WriteLine($"MapClick: {e.Location.Latitude}, {e.Location.Longitude}");
+        Shell.Current.GoToAsync($"{nameof(CreateNewTrashPinModalView)}",
+            new Dictionary<string, object>
+            {
+                {"location", e.Location}
+            });
     }
 
     //When a pin is clicked, navigate to the TrashPinModalView

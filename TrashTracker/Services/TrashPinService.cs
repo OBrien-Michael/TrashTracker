@@ -92,5 +92,11 @@ namespace TrashTracker.Services
         {
             return TrashPinList.Where(pin => pin.Severity == severity).ToList();
         }
+
+        //Add a TrashPin to the TrashPinList
+        public void AddTrashPin(TrashPin trashPin)
+        {
+            TrashPinList.Add(trashPin);
+        }
     }
 }

@@ -11,10 +11,10 @@
     <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*,*,*,*">
         <!-- Filter pins by buttons -->
         <Label Margin="10" Text="Filter Pins By:"/>
-        <Button Margin="5" Grid.Column="1" Text="Low" Command="{Binding ShowLowSeverityPinsCommand}" />
-        <Button Margin="5" Grid.Column="2" Text="Medium" Command="{Binding ShowMediumSeverityPinsCommand}" />
-        <Button Margin="5" Grid.Column="3" Text="High" Command="{Binding ShowHighSeverityPinsCommand}" />
-        <Button Margin="5" Grid.Column="4" Text="Show All" Command="{Binding ShowAllPinsCommand}" />
+        <Button Margin="3" Grid.Column="1" Text="Low" Command="{Binding ShowLowSeverityPinsCommand}"/>
+        <Button Margin="3" Grid.Column="2" Text="Medium" Command="{Binding ShowMediumSeverityPinsCommand}"/>
+        <Button Margin="3" Grid.Column="3" Text="High" Command="{Binding ShowHighSeverityPinsCommand}"/>
+        <Button Margin="3" Grid.Column="4" Text="All" Command="{Binding ShowAllPinsCommand}"/>
 
 
     <!-- Map -->

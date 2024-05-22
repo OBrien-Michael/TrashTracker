@@ -34,5 +34,30 @@ namespace TrashTrackerTestSuite.Services
 			// Assert
 			Assert.Equal(result.First().Severity,Severity.Low);
 		}
+
+		[Fact]
+		public void AddTrashPin()
+		{
+			// Arrange
+			var service = new TrashPinService();
+			var newTrashPin = new TrashPin
+			{
+				Id = 7,
+				Name = "Trash Pin 7",
+				Description = "This is a new trash pin",
+				Location = new Location(52.57414, -9.10025),
+				Image = "image1.jpg",
+				Severity = Severity.Low,
+				ReportedBy = 0,
+				ReportedOn = new DateTime(2024, 2, 25, 10, 30, 50),
+			};
+
+			// Act
+			service.AddTrashPin(newTrashPin);
+
+			// Assert
+			Assert.Contains(newTrashPin, service.TrashPinList);
+		}
+
 	}
 }
