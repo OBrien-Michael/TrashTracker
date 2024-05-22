@@ -35,20 +35,47 @@ namespace TrashTracker.ViewModel
 			}
 		}
 
-        [ObservableProperty]
-        TrashPin selectedTrashPin;
-
-        public void TrashPinSelectedPopup(TrashPin selectedTrashPin)
+        //Methods to filter pins on the map based on severity
+        [RelayCommand]
+        public void ShowLowSeverityPins()
         {
-            if (selectedTrashPin == null) return;
-            Shell.Current.GoToAsync($"{nameof(TrashPinModalView)}",
-                new Dictionary<string, object>
-                {
-                    {"Id", selectedTrashPin}
-                });
-            selectedTrashPin = null;
+            TrashPins.Clear();
+            var trashPins = trashPinService.GetTrashPinsBySeverity(Severity.Low);
+            foreach (TrashPin trashPin in trashPins)
+            {
+                TrashPins.Add(trashPin);
+            }
         }
 
+        [RelayCommand]
+        public void ShowMediumSeverityPins()
+        {
+            TrashPins.Clear();
+            var trashPins = trashPinService.GetTrashPinsBySeverity(Severity.Medium);
+            foreach (TrashPin trashPin in trashPins)
+            {
+                TrashPins.Add(trashPin);
+            }
+        }
+
+        [RelayCommand]
+        public void ShowHighSeverityPins()
+        {
+            TrashPins.Clear();
+            var trashPins = trashPinService.GetTrashPinsBySeverity(Severity.High);
+            foreach (TrashPin trashPin in trashPins)
+            {
+                TrashPins.Add(trashPin);
+            }
+        }
+
+        //Method to clear all filters and load all pins
+        [RelayCommand]
+        public void ShowAllPins()
+        {
+            TrashPins.Clear();
+            LoadPins();
+        }
 
     }
 }
