@@ -8,6 +8,7 @@ namespace TrashTracker
 		{
 			InitializeComponent();
             Routing.RegisterRoute(nameof(TrashPinModalView), typeof(TrashPinModalView));
+            Routing.RegisterRoute(nameof(CreateNewTrashPinModalView), typeof(CreateNewTrashPinModalView));
         }
 	}
 }

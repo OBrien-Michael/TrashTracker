@@ -21,7 +21,6 @@ namespace TrashTracker.ViewModel
 		{
 			_trashPins = new ObservableCollection<TrashPin>();
 			this.trashPinService = trashPinService;
-			LoadPins();
 		}
 
 

@@ -16,6 +16,7 @@ namespace TrashTrackerTestSuite.ViewModel
 
 			// Act
 			var viewModel = new MapPageViewModel(trashPinService);
+			viewModel.LoadPins();
 
 			// Assert
 			Assert.Equal(viewModel.TrashPins.Count,trashPinService.TrashPinList.Count);

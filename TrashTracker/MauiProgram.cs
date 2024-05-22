@@ -32,6 +32,9 @@ namespace TrashTracker
             builder.Services.AddSingleton<TrashPinModalView>();
             builder.Services.AddSingleton<TrashPinModalViewModel>();
 
+            builder.Services.AddSingleton<CreateNewTrashPinModalView>();
+            builder.Services.AddSingleton<CreateNewTrashPinModalViewModel>();
+
 
 			//Checks to see what platform the app is running on and uses the appropriate map renderer
 #if IOS || ANDROID
