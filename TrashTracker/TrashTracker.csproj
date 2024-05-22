@@ -73,10 +73,16 @@
 	  <Compile Update="View\MapPageView.xaml.cs">
 	    <DependentUpon>MapPageView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\TrashPinModalView.xaml.cs">
+	    <DependentUpon>TrashPinModalView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="View\MapPageView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\TrashPinModalView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

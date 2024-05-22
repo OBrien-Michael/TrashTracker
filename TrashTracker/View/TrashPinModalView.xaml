@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:TrashTracker.ViewModel"
+    x:Class="TrashTracker.View.TrashPinModalView"
+    x:DataType="viewModel:TrashPinModalViewModel"
+    Title="{Binding TrashPin.Name}">
+
+    <ScrollView>
+        <Grid Padding="10" RowDefinitions="*,*,*,*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*">
+
+
+            <Label Grid.Row="0" Grid.Column="0" Text="ID: " />
+            <Label Grid.Row="0" Grid.Column="1" x:Name="IdLabel" Text="{Binding TrashPin.Id}" />
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Name: " />
+            <Label Grid.Row="1" Grid.Column="1" x:Name="NameLabel" Text="{Binding TrashPin.Name}" />
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Description: " />
+            <Label Grid.Row="2" Grid.Column="1" x:Name="DescriptionLabel" Text="{Binding TrashPin.Description}" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Location: " />
+            <Label Grid.Row="3" Grid.Column="1" x:Name="LocationLatitudeLabel" Text="{Binding TrashPin.Location.Latitude}" />
+            <Label Grid.Row="3" Grid.Column="2" x:Name="LocationLongitudeLabel" Text="{Binding TrashPin.Location.Longitude}" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Severity" />
+            <Label Grid.Row="4" Grid.Column="1" x:Name="SeverityLabel" Text="{Binding TrashPin.Severity}" />
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Reported By" />
+            <Label Grid.Row="5" Grid.Column="1" x:Name="ReportedByLabel" Text="{Binding TrashPin.ReportedBy}" />
+
+            <Label Grid.Row="6" Grid.Column="0" Text="Reported On" />
+            <Label Grid.Row="6" Grid.Column="1" x:Name="ReportedOnLabel" Text="{Binding TrashPin.ReportedOn}" />
+
+            <Label Grid.Row="7" Grid.Column="0" Text="Cleaned By" />
+            <Label Grid.Row="7" Grid.Column="1" x:Name="CleanedByLabel" Text="{Binding TrashPin.CleanedBy}" />
+
+            <Label Grid.Row="8" Grid.Column="0" Text="Cleaned On" />
+            <Label Grid.Row="8" Grid.Column="1" x:Name="CleanedOnLabel" Text="{Binding TrashPin.CleanedOn}" />
+
+
+            <Button Grid.Row="9" Grid.Column="0" Text="Mark as Clean" />
+            <Button Grid.Row="9" Grid.Column="2" Text="Back" Command="{Binding ReturnToMapCommand}"/>
+
+
+            <Image Grid.Row="10" Grid.ColumnSpan="2" x:Name="TrashImage" Source="{Binding TrashPin.Image}" />
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

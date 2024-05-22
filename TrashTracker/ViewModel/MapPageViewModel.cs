@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using TrashTracker.Model;
 using TrashTracker.Services;
+using TrashTracker.View;
 
 namespace TrashTracker.ViewModel
 {
@@ -33,5 +35,20 @@ namespace TrashTracker.ViewModel
 			}
 		}
 
-	}
+        [ObservableProperty]
+        TrashPin selectedTrashPin;
+
+        public void TrashPinSelectedPopup(TrashPin selectedTrashPin)
+        {
+            if (selectedTrashPin == null) return;
+            Shell.Current.GoToAsync($"{nameof(TrashPinModalView)}",
+                new Dictionary<string, object>
+                {
+                    {"Id", selectedTrashPin}
+                });
+            selectedTrashPin = null;
+        }
+
+
+    }
 }

@@ -18,7 +18,7 @@
         <ShellContent
             Title="Map"
             ContentTemplate="{DataTemplate view:MapPageView}"
-            Route="View/MapPageView"
+            Route="MapPageView"
             Icon="fa_earth_americas_solid.png" />
 
         <ShellContent
