@@ -70,6 +70,12 @@ jobs:
     runs-on: windows-latest  # Runs on latest windows
 
     steps:
+        #Download the built artifact
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: 
+          name: windows artifact
+          
       # Execute all unit tests in the solution
       - name: Execute unit tests
         run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
