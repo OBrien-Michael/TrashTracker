@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Debug]
 
     runs-on: windows-latest  # Runs on latest windows
                              
@@ -50,10 +50,10 @@ jobs:
 
     # Execute build the solution
     - name: Build for windows
-      run: dotnet build ${{ env.ProjectPath }} -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
+      run: dotnet build TrashTracker/TrashTracker.csproj -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test ${{ env.Test_Project_Path }}
+      run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
 
 
