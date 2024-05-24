@@ -13,7 +13,7 @@ on:
 
 # Jobs to run
 jobs:
-  windows-build: #Windows build Job
+  build-windows: #Windows build Job
     runs-on: windows-latest  # Runs on latest windows
 
     #Checkout the repo
@@ -34,11 +34,40 @@ jobs:
     # Upload the build artifact
     - uses: actions/upload-artifact@v4
       with:
-          name: windows artifact
+          name: project artifact
           path: '**/bin/Release'
 
-  test: #Windows test Job
-    needs: windows-build
+
+
+  build-android: #Android build Job
+    runs-on: windows-latest  # Runs on latest Windows
+
+    #Checkout the repo
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    #Install MAUI workload
+    - name: Install MAUI workload
+      run: dotnet workload install maui
+
+    # Execute build the project
+    - name: Build for android
+      run: dotnet build TrashTracker/TrashTracker.csproj -c Release -f:net8.0-android   #Build a release based on target framework
+
+    # Upload the build artifact
+    - uses: actions/upload-artifact@v4
+      with:
+          name: project artifact
+          path: '**/bin/Release'
+
+
+    
+
+  test: #Test Job
+    needs: [ build-windows, build-android ]
     runs-on: windows-latest  # Runs on latest windows
 
     
@@ -47,7 +76,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: 
-          name: windows artifact
+          name: project artifact
     
       # Execute all unit tests in the solution
       - name: Execute unit tests
