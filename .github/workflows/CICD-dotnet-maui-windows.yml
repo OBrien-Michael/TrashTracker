@@ -13,47 +13,44 @@ on:
 
 # Jobs to run
 jobs:
-
-  build:
-
-    strategy:
-      matrix:
-        configuration: [Debug]
-
+  build: #Build Job
     runs-on: windows-latest  # Runs on latest windows
-                             
-    #Setup environment variables
-    env:
-      Solution_Name: TrashTracker.sln                                                     # Project Solution
-      Project_Path: TrashTracker/TrashTrackerTestSuite.csproj                             # Project Path
-      Test_Project_Path: TrashTrackerTestSuite/TrashTrackerTestSuite.csproj               # Tests Path
 
+    #Checkout the repo
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-
     #Install MAUI workload
     - name: Install MAUI workload
       run: dotnet workload install maui
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v2
-
-    # Execute build the solution
+    # Execute build the project
     - name: Build for windows
       run: dotnet build TrashTracker/TrashTracker.csproj -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
 
-    # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
+    # Upload the build artifact
+    - uses: actions/upload-artifact@v4
+      with:
+          name: windows artifacts
+          path: public/
+
+  test: #Test Job
+    needs: build
+    runs-on: windows-latest  # Runs on latest windows
+
+    #Download the built artifact
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: 
+          name: webpack artifacts
+          path: public      
+    
+      # Execute all unit tests in the solution
+      - name: Execute unit tests
+        run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
 
 
