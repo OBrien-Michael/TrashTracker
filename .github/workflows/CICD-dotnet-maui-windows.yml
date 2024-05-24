@@ -50,7 +50,7 @@ jobs:
 
     # Execute build the solution
     - name: Build
-      run: dotnet build {{ env.ProjectPath }}
+      run: dotnet build {{ env.ProjectPath }} -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
