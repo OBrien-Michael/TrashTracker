@@ -22,7 +22,7 @@ jobs:
 
     runs-on: windows-latest  # Runs on latest windows
                              
-
+    #Setup environment variables
     env:
       Solution_Name: TrashTracker.sln                                                     # Project Solution
       Project_Path: TrashTracker/TrashTrackerTestSuite.csproj                             # Project Path
@@ -49,11 +49,11 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     # Execute build the solution
-    - name: Build
-      run: dotnet build {{ env.ProjectPath }} -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
+    - name: Build for windows
+      run: dotnet build ${{ env.ProjectPath }} -c Release -f:net8.0-windows10.0.19041.0   #Build a release based on target framework
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test {{ env.Test_Project_Path }}
+      run: dotnet test ${{ env.Test_Project_Path }}
 
 
