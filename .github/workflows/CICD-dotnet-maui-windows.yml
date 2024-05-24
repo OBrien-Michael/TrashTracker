@@ -13,7 +13,7 @@ on:
 
 # Jobs to run
 jobs:
-  build: #Build Job
+  windows-build: #Windows build Job
     runs-on: windows-latest  # Runs on latest windows
 
     #Checkout the repo
@@ -35,19 +35,19 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
           name: windows artifact
-          path: .\**\AppPackages\**\*.*
+          path: '**/bin/Release'
 
-  test: #Test Job
-    needs: build
+  test: #Windows test Job
+    needs: windows-build
     runs-on: windows-latest  # Runs on latest windows
 
-    #Download the built artifact
+    
     steps:
+    #Download the built artifact
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: 
           name: windows artifact
-          path: .\**\AppPackages\**\*.*    
     
       # Execute all unit tests in the solution
       - name: Execute unit tests
