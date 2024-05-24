@@ -2,7 +2,7 @@
 #
 #
 
-name: CI/CD .NET Maui Windows
+name: CI/CD .NET Maui
 
 # Define when the workflow should run. On a push to main, a PR to main
 on:
@@ -34,7 +34,7 @@ jobs:
     # Upload the build artifact
     - uses: actions/upload-artifact@v4
       with:
-          name: project artifact
+          name: windows artifact
           path: '**/bin/Release'
 
 
@@ -60,24 +60,16 @@ jobs:
     # Upload the build artifact
     - uses: actions/upload-artifact@v4
       with:
-          name: project artifact
+          name: android artifact
           path: '**/bin/Release'
 
 
-    
-
   test: #Test Job
+    # Requires builds to pass first
     needs: [ build-windows, build-android ]
     runs-on: windows-latest  # Runs on latest windows
 
-    
     steps:
-    #Download the built artifact
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with: 
-          name: project artifact
-    
       # Execute all unit tests in the solution
       - name: Execute unit tests
         run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
