@@ -9,11 +9,16 @@ on:
 jobs:
   add_labels:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: checkout
         uses: actions/checkout@v4
 
       - name: add labels
         uses: actions-ecosystem/action-add-labels@v1
+        
         with:
           labels: pull-request
+
+
