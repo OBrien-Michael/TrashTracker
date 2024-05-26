@@ -58,7 +58,7 @@ jobs:
           name: windows artifact
           path: '**/bin/Release'
 
-  notify-slack-win-build:
+  notify-slack-windows-build:
     runs-on: ubuntu-latest
     needs: [build-windows]
     
@@ -109,8 +109,12 @@ jobs:
       with:
           name: android artifact
           path: '**/bin/Release'
-
-
+  
+  notify-slack-android-build:
+    runs-on: ubuntu-latest
+    needs: [build-android]
+    
+    steps:
     - name: Slack Notification Android Success
       if: success()
       uses: rtCamp/action-slack-notify@v2.3.0
@@ -151,6 +155,11 @@ jobs:
         run: dotnet test TrashTrackerTestSuite/TrashTrackerTestSuite.csproj
 
 
+  notify-slack-tests:
+    runs-on: ubuntu-latest
+    needs: [test]
+    
+    steps:
       - name: Slack Notification Tests Success
         if: success()
         uses: rtCamp/action-slack-notify@v2.3.0
@@ -212,7 +221,6 @@ jobs:
     steps:
     - name: Deploy
       run: echo Deploying to Staging Environment
-
 
     - name: Slack Notification Deployment Stagin
       uses: rtCamp/action-slack-notify@v2.3.0
