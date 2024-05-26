@@ -13,3 +13,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ADD_LABEL: "pr-approved"
         REMOVE_LABEL: "pull-request"
+
+    - name: Slack Notification Pull Request Approved
+      uses: rtCamp/action-slack-notify@v2.3.0
+      env:
+        SLACK_CHANNEL: trash-tracker
+        SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: 'Pull Request Approved'
+        SLACK_TITLE: PR Approved
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
