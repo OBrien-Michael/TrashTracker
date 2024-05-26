@@ -24,6 +24,16 @@ jobs:
       packages: read
       statuses: write
 
+  #Run CodeQL Analysis
+  codeql-analysis:
+    uses: ./.github/workflows/CodeQL.yml
+
+    #Permissions for CodeQL
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
 
   build-windows: #Windows build Job
     runs-on: windows-latest  # Runs on latest windows
