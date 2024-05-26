@@ -28,11 +28,11 @@ jobs:
   codeql-analysis:
     uses: ./.github/workflows/CodeQL.yml
 
-    #Permissions for the Linter
+    #Permissions for CodeQL
     permissions:
+      actions: read
       contents: read
-      packages: read
-      statuses: write
+      security-events: write
 
 
   build-windows: #Windows build Job
