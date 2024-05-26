@@ -1,0 +1,19 @@
+#On creation of a new pull request add the label pull-request
+
+name: Add Labels
+
+on:
+  pull_request:
+    types: opened
+
+jobs:
+  add_labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: add labels
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: pull-request
