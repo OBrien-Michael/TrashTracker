@@ -18,6 +18,12 @@ jobs:
   run-lint:
     uses: ./.github/workflows/super-linter.yml
 
+    #Permissions for the Linter
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
 
   build-windows: #Windows build Job
     runs-on: windows-latest  # Runs on latest windows
