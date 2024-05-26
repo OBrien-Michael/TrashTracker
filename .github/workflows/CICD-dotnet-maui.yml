@@ -13,6 +13,12 @@ on:
 
 # Jobs to run
 jobs:
+
+  #Run Linting
+  run-lint:
+    uses: ./.github/workflows/super-linter.yml
+
+
   build-windows: #Windows build Job
     runs-on: windows-latest  # Runs on latest windows
 
