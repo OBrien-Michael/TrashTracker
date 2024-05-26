@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "TrashTracker/src"
+    directory: "/"
     schedule:
       interval: "weekly"
