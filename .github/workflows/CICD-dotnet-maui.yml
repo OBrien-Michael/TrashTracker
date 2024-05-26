@@ -60,20 +60,22 @@ jobs:
 
     - name: Slack Notification Windows Success
       if: success()
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@v2.3.0
       env:
         SLACK_CHANNEL: trash-tracker
         SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Successful Build Windows'
         SLACK_TITLE: Windows Build Success
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
     - name: Slack Notification Windows Failure
       if: failure()
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@v2.3.0
       env:
         SLACK_CHANNEL: trash-tracker
         SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Failed Build Windows'
         SLACK_TITLE: Windows Build Failed
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -106,20 +108,22 @@ jobs:
 
     - name: Slack Notification Android Success
       if: success()
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@v2.3.0
       env:
         SLACK_CHANNEL: trash-tracker
         SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Successful Build Android'
         SLACK_TITLE: Android Build Success
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
     - name: Slack Notification Windows Failure
       if: failure()
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@v2.3.0
       env:
         SLACK_CHANNEL: trash-tracker
         SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Failed Build Android'
         SLACK_TITLE: Android Build Failed
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -144,20 +148,22 @@ jobs:
 
       - name: Slack Notification Tests Success
         if: success()
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2.3.0
         env:
           SLACK_CHANNEL: trash-tracker
           SLACK_COLOR: ${{ job.status }} 
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Successful Tests'
           SLACK_TITLE: Tests Success
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
       - name: Slack Notification Tests Failure
         if: failure()
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2.3.0
         env:
           SLACK_CHANNEL: trash-tracker
           SLACK_COLOR: ${{ job.status }} 
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Failed Tests'
           SLACK_TITLE: Tests Failed
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -179,10 +185,11 @@ jobs:
         run: echo Deployed to Development Environment
 
       - name: Slack Notification Deployment Development
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2.3.0
         env:
           SLACK_CHANNEL: trash-tracker
           SLACK_COLOR: ${{ job.status }} 
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Deployed to Development'
           SLACK_TITLE: Deployed to Development
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -203,10 +210,11 @@ jobs:
 
 
     - name: Slack Notification Deployment Stagin
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@v2.3.0
       env:
         SLACK_CHANNEL: trash-tracker
         SLACK_COLOR: ${{ job.status }} 
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Deployed to Staging'
         SLACK_TITLE: Deployed to Staging
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -223,10 +231,11 @@ jobs:
         run: echo Deploying to Production Environment
 
       - name: Slack Notification Deployment Production
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2.3.0
         env:
           SLACK_CHANNEL: trash-tracker
           SLACK_COLOR: ${{ job.status }} 
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Deployed to Production'
           SLACK_TITLE: Deployed to Production
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
