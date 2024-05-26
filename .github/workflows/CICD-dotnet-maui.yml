@@ -58,6 +58,11 @@ jobs:
           name: windows artifact
           path: '**/bin/Release'
 
+  notify-slack-win-build:
+    runs-on: ubuntu-latest
+    needs: [build-windows]
+    
+    steps:
     - name: Slack Notification Windows Success
       if: success()
       uses: rtCamp/action-slack-notify@v2.3.0
