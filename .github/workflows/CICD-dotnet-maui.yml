@@ -15,14 +15,14 @@ on:
 jobs:
 
   #Run Linting
-  #run-lint:
-    #uses: ./.github/workflows/super-linter.yml
+  run-lint:
+    uses: ./.github/workflows/super-linter.yml
 
     #Permissions for the Linter
-    #permissions:
-      #contents: read
-      #packages: read
-      #statuses: write
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
 
   #Run CodeQL Analysis
   codeql-analysis:
