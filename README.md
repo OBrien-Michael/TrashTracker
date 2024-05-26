@@ -1,4 +1,4 @@
-[![CI/CD .NET Maui](https://github.com/OBrien-Michael/TrashTracker/actions/workflows/CICD-dotnet-maui.yml/badge.svg?branch=main)](https://github.com/OBrien-Michael/TrashTracker/actions/workflows/CICD-dotnet-maui.yml)
+
 
 # TrashTracker
 
