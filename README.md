@@ -1,6 +1,6 @@
 
 
-# TrashTracker
+# Trash Tracker
 
 TrashTracker is a final year project for the BSc Honours in Contemporary Software Development 2023/2024.
 
