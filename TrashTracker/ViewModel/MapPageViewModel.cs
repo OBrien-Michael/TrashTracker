@@ -8,7 +8,7 @@ using TrashTracker.View;
 
 namespace TrashTracker.ViewModel
 {
-	public partial class MapPageViewModel : ObservableObject
+	public partial class MapPageViewModel1 : ObservableObject
 	{
 
         private TrashPinService trashPinService;
